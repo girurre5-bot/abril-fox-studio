@@ -105,6 +105,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .has-sub.is-open .sub { opacity: 1; visibility: visible; transform: none; transition: opacity .25s, transform .25s; }
 .menu .sub a { display: block; padding: 8px 0; }
 
+/* Menú: secciones en negrita, Weddings y Stories en normal */
+.menu > ul > li > a, .sub-btn { font-weight: 600; }
+.menu .sub a { font-weight: 300; }
+
 /* Fuera del inicio: en ordenador solo se ve «Menu»; al pasar por encima se despliega */
 .navwrap { position: relative; }
 @media (min-width: 900px) {
@@ -196,8 +200,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .wall .ph img { height: 100%; object-fit: cover; transition: transform 1.2s var(--ease), opacity .6s; }
 .wall a:hover img { transform: scale(1.02); }
-.wall__place { display: block; font: 300 clamp(1.05rem, 1.4vw, 1.3rem)/1.3 var(--f-place); margin-top: 1em; }
-.wall__names { display: block; font: 400 .8rem/1.3 var(--f-title); text-transform: uppercase; letter-spacing: .08em; color: var(--tinta-2); margin-top: .5em; }
+.wall__place { display: block; font: 400 var(--t-s)/1.4 var(--f-text); letter-spacing: .02em; margin-top: 1em; }
+.wall__names { display: block; font: 300 var(--t-s)/1.4 var(--f-text); letter-spacing: .02em; color: var(--tinta-2); margin-top: .3em; }
 .wall a:focus-visible { outline-offset: 8px; }
 @media (max-width: 899px) { .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 599px) { .wall { grid-template-columns: minmax(0, 1fr); } }
