@@ -68,7 +68,7 @@
   const mosaic = $('.mosaic');
   if (mosaic) {
     requestAnimationFrame(() => requestAnimationFrame(() => mosaic.classList.add('is-in')));
-    // Cada 5 s, los cuatro huecos pasan a su siguiente foto (con un pequeño desfase entre ellos).
+    // Cada 3 s, los cuatro huecos pasan a su siguiente foto (con un pequeño desfase entre ellos).
     // Se para al pasar el ratón por encima y no arranca con reduce-motion.
     const slots = $$('[data-slot]', mosaic).map((el) => ({ el, figs: $$('.ph', el), k: 0 }));
     let over = false;
@@ -81,8 +81,8 @@
     };
     if (!reduce) setInterval(() => {
       if (over || document.hidden) return;
-      slots.forEach((s, n) => setTimeout(() => step(s), n * 180));
-    }, 5000);
+      slots.forEach((s, n) => setTimeout(() => step(s), n * 150));
+    }, 3000);
   }
 
   /* Entrada de la portada, cuando la foto ya ha cargado */
