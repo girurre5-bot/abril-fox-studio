@@ -171,11 +171,14 @@ button, input, textarea, select { font: inherit; color: inherit; }
 /* Sobre nosotros: texto a la izquierda, foto a la derecha; debajo, dos tiras de cinco fotos */
 .about { padding-block: clamp(32px, 6vh, 72px) var(--s1); align-items: start; row-gap: var(--s1); }
 .about__text { grid-column: 1 / span 6; }
-.about__title { font: 400 clamp(3rem, 6vw, 5.6rem)/.98 var(--f-title); text-transform: uppercase; }
+.about__title { font: 400 clamp(2rem, 3.4vw, 3.2rem)/1 var(--f-title); text-transform: uppercase; }
 .about__sub { font: 400 clamp(1rem, 1.5vw, 1.3rem)/1.4 var(--f-title); text-transform: uppercase; letter-spacing: .06em; color: var(--tinta-2); margin-top: 1.2em; max-width: 34ch; }
 .about__body { margin-top: clamp(40px, 8vh, 96px); display: grid; gap: 1.3em; max-width: 60ch; font-size: clamp(1.05rem, 1rem + .25vw, 1.2rem); line-height: 1.8; }
 .firma { width: min(240px, 60%); margin-top: 2.4em; }
-.about__photo { grid-column: 7 / -1; position: sticky; top: 96px; }
+.about__text { display: flex; flex-direction: column; }
+.about__body { width: 100%; }
+.about .firma { align-self: flex-end; }
+.about__photo { grid-column: 7 / -1; }
 .about__photo img { width: 100%; height: auto; }
 .strips { grid-column: 1 / -1; display: grid; gap: clamp(12px, 1.6vw, 24px); }
 .strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); }
@@ -187,6 +190,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .wall { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(56px, 8vw, 120px) clamp(24px, 5.5vw, 96px); align-items: start; }
 .wall a { display: block; text-decoration: none; }
 .wall .ph { overflow: hidden; aspect-ratio: 2 / 3; }
+/* En ordenador, la foto, el lugar y los nombres caben en la primera pantalla */
+@media (min-width: 900px) {
+  .wall { grid-template-columns: repeat(3, minmax(0, calc((100svh - 340px) * 2 / 3))); justify-content: space-between; }
+}
 .wall .ph img { height: 100%; object-fit: cover; transition: transform 1.2s var(--ease), opacity .6s; }
 .wall a:hover img { transform: scale(1.02); }
 .wall__place { display: block; font: 300 clamp(1.05rem, 1.4vw, 1.3rem)/1.3 var(--f-place); margin-top: 1em; }
@@ -198,8 +205,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
 /* Gallery dividida: Weddings y Stories */
 .gal { grid-column: 1 / -1; }
 .gal + .gal { margin-top: var(--s1); }
-.gal__t { font: 400 clamp(2.2rem, 4vw, 3.8rem)/1 var(--f-title); text-transform: uppercase; margin-bottom: clamp(32px, 5vw, 64px); }
-.stories { padding-top: clamp(40px, 8vh, 96px); }
+.gal__t { font: 400 clamp(1.8rem, 3vw, 2.8rem)/1 var(--f-title); text-transform: uppercase; margin-bottom: clamp(20px, 3vh, 36px); }
+.stories { padding-top: clamp(20px, 4vh, 40px); }
 
 /* Portfolio: muro de fotos sin texto */
 .pf { padding: clamp(24px, 5vh, 56px) clamp(16px, 1.8vw, 28px) var(--s1); }
@@ -344,8 +351,9 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .foot__center { display: grid; justify-items: center; gap: .9rem; }
 .foot__firma { grid-column: 1 / -1; justify-self: center; width: min(300px, 64vw); margin-bottom: clamp(16px, 3vw, 40px); }
 .foot__mail { font-size: 1rem; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-.foot__ig { display: inline-flex; padding: 6px; }
-.foot__ig:hover { opacity: .7; }
+.foot__social { display: flex; gap: 6px; }
+.foot__social a { display: inline-flex; padding: 8px; }
+.foot__social a:hover { opacity: .7; }
 .foot__copy { font-size: .82rem; color: rgb(246 240 230 / .7); }
 .foot__nav { justify-self: end; display: flex; gap: clamp(32px, 4vw, 64px); }
 .foot__h { font: 400 .95rem/1.2 var(--f-title); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1.1em; }
